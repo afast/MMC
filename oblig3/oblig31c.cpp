@@ -31,8 +31,7 @@ int main(int argc, char* argv[]) {
   struct timeval start, end; //Para calcular el tiempo que se demora en realizar los cálculos
 
   n = 46110994; //La cantidad calculada en la parte b
-  init_genrand(time(NULL)); // inicialización del generador de números
-  aleatorios
+  init_genrand(time(NULL)); // inicialización del generador de números aleatorios
 
   // Valores iniciales para Chebyshev
   delta = 0.05; // Intervalo de confianza 95%
@@ -80,9 +79,9 @@ int main(int argc, char* argv[]) {
   gettimeofday(&end, NULL);
 
   cout << "Intervalos de confianza:" << endl;
-  cout << "Chebyshev: (" << w1c << ", " << w2c << ") -- Ancho: " << w2c-w1c << endl;
-  cout << "Agresti-Coull: (" << w1a << ", " << w2a << ") -- Ancho: " << w2a-w1a << endl;
-  cout << "Tiempo de calculo: " << tiempo_transcurrido(start, end) << endl;
+  cout << "Chebyshev: (" << w1c << ", " << w2c << ") -- Ancho: " << fixed << w2c-w1c << endl;
+  cout << "Agresti-Coull: (" << w1a << ", " << w2a << ") -- Ancho: " << fixed << w2a-w1a << endl;
+  cout << "Tiempo de calculo: " << segundos_transcurridos(&end, &start) << endl;
 
   return 0;
 }
