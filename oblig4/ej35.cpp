@@ -90,7 +90,6 @@ void calcular_ci(int cantReplicaciones, int cantNodos, int cantAristas, int** ar
   }
 
   for (int k=0; k<=cantAristas; k++) {
-    cout << "S" << k << ": " << S[k] << endl;
     C[k] = (double)(r*S[k]/cantReplicaciones);
     V[k] = (double)(C[k]*(r-C[k])/(cantReplicaciones-1));
 
