@@ -3,8 +3,6 @@
 #include <string>
 #include <sstream>
 
-#define DEBUG 0
-
 using namespace std;
 
 class Generador {
@@ -35,25 +33,16 @@ class Generador {
       if (!archivo.is_open())
         archivo.open(nombreArchivo);
       if (archivo.eof()) {
-        if (DEBUG)
-        cout << "End of file detected, start anew" << endl;
         archivo.clear();
         archivo.seekg(0);
-        if (DEBUG)
-        cout << "File state: " << archivo.good() << endl;
       }
       if (archivo.good()) {
         getline(archivo, line);
-        if (DEBUG)
-        cout << "Linea leida: " << line << endl;
         lineaActual.str(line);
         lineaActual.clear();
         lineaActual.seekg(0);
-        if (descartarPrimero) {
+        if (descartarPrimero)
           lineaActual >> descartado;
-          if (DEBUG)
-          cout << "Descartado: " << descartado << endl;
-        }
       }
     }
     double getNextRand() {
@@ -61,8 +50,6 @@ class Generador {
     }
     int getNextNum() {
       int result;
-      if (DEBUG)
-        cout << "Linea Actual: " << lineaActual.eof() << endl;
       if (lineaActual.eof())
         readLineFromFile();
       lineaActual >> result;

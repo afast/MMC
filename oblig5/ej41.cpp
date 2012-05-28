@@ -45,8 +45,6 @@ int main(int argc, char* argv[]) {
   generador.iniciar(nombreArchivo, ignorar==1);
   generador.normalizar();
 
-  cout << "extremos: " << generador.a << endl << "ancho: " << generador.ancho << endl;
-
   gettimeofday(&start, NULL);;
   
   double X = 0;
