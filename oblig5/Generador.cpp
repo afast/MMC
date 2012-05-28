@@ -11,15 +11,13 @@ class Generador {
   ifstream archivo;
   istringstream lineaActual;
   char * nombreArchivo;
-  bool descartarPrimero;
-  int a, ancho; //extremos del intervalo
   
   public:
+    int a, ancho; //extremos del intervalo
+    bool descartarPrimero, lecturaCompleta;
     void iniciar(char * nombre, bool descartarPrimerNumero) {
       nombreArchivo = nombre;
       descartarPrimero = descartarPrimerNumero;
-      a = 0;
-      ancho = 1;
       archivo.open(nombreArchivo);
       readLineFromFile();
     }
@@ -64,15 +62,13 @@ class Generador {
     int getNextNum() {
       int result;
       if (DEBUG)
-      cout << "Linea Actual: " << lineaActual.eof() << endl;
+        cout << "Linea Actual: " << lineaActual.eof() << endl;
       if (lineaActual.eof())
         readLineFromFile();
       lineaActual >> result;
+      if (lineaActual.eof() && archivo.eof())
+        lecturaCompleta = true;
       return result;
-    }
-      
-    bool lecturaCompleta() {
-      return lineaActual.eof() && archivo.eof();
     }
     void cerrar() {
       archivo.close();
@@ -83,7 +79,7 @@ class Generador {
       cout << "Normalizando el generador para generar entre [0,1]... ";
       max = min = getNextNum();
       
-      while (!lecturaCompleta()) {
+      while (!lecturaCompleta) {
         aux = getNextNum();
         if (aux > max)
           max = aux;
@@ -95,5 +91,8 @@ class Generador {
       cout << "normalizado" << endl;
       archivo.clear();
       archivo.seekg(0);
+      lineaActual.clear();
+      lineaActual.seekg(0);
+      readLineFromFile();
     }
 };

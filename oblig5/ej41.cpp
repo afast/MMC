@@ -45,6 +45,7 @@ int main(int argc, char* argv[]) {
   generador.iniciar(nombreArchivo, ignorar==1);
   generador.normalizar();
 
+  cout << "extremos: " << generador.a << endl << "ancho: " << generador.ancho << endl;
 
   gettimeofday(&start, NULL);;
   
@@ -56,10 +57,9 @@ int main(int argc, char* argv[]) {
       double x2 = generador.getNextRand();
       double x3 = generador.getNextRand();
       double x4 = generador.getNextRand();
-
-      if(puntoPertenece(x1,x2,x3,x4)){
+      
+      if(puntoPertenece(x1,x2,x3,x4))
           X += 1;
-      }
 
   }
 
