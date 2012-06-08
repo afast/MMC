@@ -64,7 +64,6 @@ int main(int argc, char* argv[]) {
   double inicio = S - phiInverse * pow(sigma2/n,0.5);
   double fin = S + phiInverse * pow(sigma2/n,0.5);
 
-  cout << "Inicio intervalo: " << inicio << endl;
-  cout << "Fin intervalo: " << fin << endl;
+  cout << "Intervalo (" << inicio << ", " << fin << ")" << endl;
   return 0;
 }
