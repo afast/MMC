@@ -41,8 +41,11 @@ int main(int argc, char* argv[]) {
   int i, n;
   struct timeval start, end;
 
+  if (argc != 2)
+    cout << "Uso: ./ej42 <archivo>" << endl;
+
   /* --------------------- parte a --------------------- */
-  init_rand();
+  init_rand(argv[1]);
 
   S = V = 0;
   n = 100000;

@@ -12,26 +12,28 @@
 #define K 10000
 #define M1 RAND_MAX
 #define M2 RAND_MAX
+#include "Generador.cpp"
 
 using namespace std;
 
 int i = 0;
 int numbers[K];
+Generador generador;
 
 int rand_2(){
-    return rand();
+    return generador.getNextNum();
 } 
 
-void init_rand(){
-    srand ( time(NULL) );
+void init_rand(char *nombreArchivo){
+  srand(time(NULL));
 
-    for(int j=0;j<K;j++){
-        numbers[j]=rand();
-    }
+  for(int j=0;j<K;j++)
+    numbers[j]=rand();
+
+  generador.iniciar(nombreArchivo, false);
 }
 
 double getRandNumber(){
-	
     int Yi = rand_2();
     int j = ceil(K*Yi/M2);
     int Zi = numbers[j];
