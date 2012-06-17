@@ -4,7 +4,6 @@
 #include <ctime>
 #include <sys/time.h>
 #include "mt19937ar.c"
-//#include "RAND.c"
 
 using namespace std;
 
@@ -32,7 +31,6 @@ void estimarIntegral(int rep, double &estimador, double &sigma2) {
     x8= getRandNumber(); // sorteo de coordenada x_8
     x9= getRandNumber(); // sorteo de coordenada x_9
 
-    // No se si realmente esto es el complemento a 1, pero ta...
     y1 = 1 - x1;
     y2 = 1 - x2;
     y3 = 1 - x3;
