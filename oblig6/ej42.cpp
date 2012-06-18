@@ -44,7 +44,6 @@ int main(int argc, char* argv[]) {
   if (argc != 2)
     cout << "Uso: ./ej42 <archivo>" << endl;
 
-  /* --------------------- parte a --------------------- */
   init_rand(argv[1]);
 
   S = V = 0;
